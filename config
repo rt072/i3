@@ -1,6 +1,6 @@
-exec compton &
-exec pasystray &
-exec ~/.scripts/chwall & 
+exec --no-startup-id compton &
+exec --no-startup-id pasystray &
+exec --no-startup-id ~/.scripts/chwall & 
 
 set $mod Mod4
 set $term st
