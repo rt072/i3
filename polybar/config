@@ -206,7 +206,6 @@ interval = 30
 fixed-values = true
 label-mounted =  %free%
 
-
 [module/arch-aur-updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-all-updates.sh
@@ -216,3 +215,11 @@ format-foreground = ${colors.foreground}
 ;format-background = #F07178
 format-prefix = ""
 ;format-prefix-foreground = #ffffff
+
+[module/info-trash]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-trash.sh
+interval = 60
+format-prefix = " "
+label = %output%  |
+click-right = ~/.config/polybar/scripts/info-trash.sh --clean

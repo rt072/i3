@@ -180,6 +180,7 @@ for_window [class="Spacefm"] floating enable
 for_window [class="Image Lounge"] floating enable
 for_window [class="libreoffice-*"] floating enable
 for_window [class="Evince"] floating enable
+for_window [class="Gcolor3"] floating enable
 
 
 
