@@ -1,6 +1,8 @@
 exec --no-startup-id compton &
 exec --no-startup-id pasystray &
-exec --no-startup-id ~/.scripts/chwall & 
+exec --no-startup-id pulseaudio --start &
+exec --no-startup-id ~/.scripts/chwall &
+
 
 set $mod Mod4
 set $term st
@@ -11,19 +13,16 @@ floating_modifier $mod
 bindsym $mod+Tab workspace back_and_forth
 
 ## dropdown terminal
-for_window [class="St" title="^dropdown@.*"] move scratchpad, resize set 1600 800, move absolute position center
-bindsym $mod+grave [title="^dropdown@.*"] scratchpad show; [title="^dropdown@.*"] move position center
-exec --no-startup-id $terminal -e tmux new-session -A -s dropdown
-# hides the scratchpad
-exec_always --no-startup-id i3-msg "scratchpad show"
-
-
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 1024 768
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 3
+bindsym $mod+x [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-
-# MPC
+## MPC
 bindsym Ctrl+Mod1+Up exec --no-startup-id "mpc volume +2"
 bindsym Ctrl+Mod1+Down exec --no-startup-id "mpc volume -2"
 bindsym Ctrl+Mod1+p exec --no-startup-id "mpc toggle"
@@ -32,6 +31,7 @@ bindsym Ctrl+Mod1+Right exec --no-startup-id "mpc next"
 bindsym Ctrl+Mod1+u exec --no-startup-id "mpc update"
 
 bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+Ctrl+Return exec --no-startup-id $term -n dropdown
 bindsym $mod+Ctrl+equal exec --no-startup-id galculator
 bindsym $mod+Ctrl+v exec --no-startup-id vncviewer
 bindsym 0xff61 exec --no-startup-id "scrot -e 'mv $f ~/Pictures/screenshots/'"
@@ -181,6 +181,9 @@ for_window [class="Image Lounge"] floating enable
 for_window [class="libreoffice-*"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="Gcolor3"] floating enable
+for_window [class="keepassxc"] floating enable
+for_window [ workspace="6" ] floating enable
+for_window [class="Subl3"] floating disable
 
 
 
