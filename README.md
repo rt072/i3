@@ -21,6 +21,6 @@ Desktop with file manager and terminal.
 * Trash info. Display how many items in Trash. Right click clear. ![screenshot](./.screenshots/trash.png)
 * List windows ![screenshot](./.screenshots/window-list.png)
 * System info. CPU usage, RAM used, Free space in root dir, updates availalble, wifi SSID info, Battery info, Volume info, Date, Keyboard layout and Systray.
-
+    ![screenshot](./.screenshots/info.png)
 
 
