@@ -14,7 +14,7 @@ exec i3
 
 
 ### Screenshots
-Desktop with file manager and terminal.
+Desktop with spacefm and terminal.
 ![screenshot](./.screenshots/desktop-1.png)
 
 * Tags list ![screenshot](./.screenshots/tags.png)
