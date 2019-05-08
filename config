@@ -184,6 +184,7 @@ for_window [class="Gcolor3"] floating enable
 for_window [class="keepassxc"] floating enable
 for_window [class="Klavaro"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="File-roller"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
 for_window [ workspace="6" ] floating enable
