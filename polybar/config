@@ -209,7 +209,7 @@ label-mounted =  %free%
 [module/arch-aur-updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-all-updates.sh
-interval = 3600
+interval = 1800
 label = %output%
 format-foreground = ${colors.foreground}
 ;format-background = #F07178
