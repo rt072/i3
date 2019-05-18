@@ -42,6 +42,7 @@ bindsym Mod1+t exec --no-startup-id translate_textbox
 bindsym $mod+Escape exec --no-startup-id oblogout
 bindsym $mod+Ctrl+f exec --no-startup-id firefox-esr
 bindsym $mod+Ctrl+s exec --no-startup-id spacefm
+bindsym $mod+Ctrl+b exec --no-startup-id homebank
 
 
 bindsym 0x1008ff02 exec --no-startup-id "xbacklight -inc 5 && xbacklight_notify"
