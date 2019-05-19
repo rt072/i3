@@ -2,6 +2,16 @@
 
 ### Installation
 
+#### In Archlinux
+```bash
+yay -S i3-wm
+```
+
+#### In Ubuntu/Debian
+```bash
+sudo apt install i3
+```
+
 ```bash
 cd /home/$USER/.config/i3
 git clone https://github.com/rt072/i3.git
