@@ -15,7 +15,7 @@ exec i3
 
 ### Screenshots
 Terminals
-![screenshots](./.screenshots/dektop-0.png)
+![screenshots](./.screenshots/desktop-0.png)
 
 Desktop with spacefm and terminal.
 ![screenshot](./.screenshots/desktop-1.png)
