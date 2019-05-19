@@ -22,7 +22,7 @@ Desktop with spacefm and terminal.
 
 * Tags list ![screenshot](./.screenshots/tags.png)
 * Trash info. Display how many items in Trash. Right click to clear. ![screenshot](./.screenshots/trash.png)
-* List windows ![screenshot](./.screenshots/window-list.png)
+* List windows ![screenshot](./.screenshots/windows-list.png)
 * System info. CPU usage, RAM used, Free space in root dir, updates availalble, VPN ON/OFF status, wifi SSID info, Battery info, Volume info, Date, Keyboard layout and Systray.
     ![screenshot](./.screenshots/info.png)
 
