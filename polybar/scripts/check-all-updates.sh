@@ -12,9 +12,12 @@ if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
 fi
 
 updates=$(("$updates_arch" + "$updates_aur"))
+echo $updates > /tmp/updates.txt
+file='/tmp/updates.txt'
+upd=`head -n 1 /tmp/updates.txt`
 
-if [ "$updates" -gt 0 ]; then
-    echo " $updates"
+if [ -s "$file" ]; then
+    echo " $upd"
 else
     echo " 0"
 fi
