@@ -22,8 +22,6 @@ then
         echo " 0"
     fi
 else
-    updates=$(("$updates_arch" + "$updates_aur"))
-    echo $updates > /tmp/updates.txt
     file='/tmp/updates.txt'
     upd=`head -n 1 /tmp/updates.txt`
 
