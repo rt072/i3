@@ -4,12 +4,12 @@
 
 #### In Archlinux
 ```bash
-yay -S i3-wm
+yay -S i3-wm compton
 ```
 
 #### In Ubuntu/Debian
 ```bash
-sudo apt install i3
+sudo apt install i3 compton
 ```
 
 ```bash
