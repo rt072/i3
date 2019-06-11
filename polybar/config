@@ -24,12 +24,12 @@ label-unfocused-padding = 2
 
 label-urgent = 
 label-urgent-background = #00000000
-label-urgent-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.base08}
 label-urgent-padding = 2
 
 label-visible = %name%
 label-visible-background = #00000000 
-label-visible-foreground = ${colors.foreground}
+label-visible-foreground = ${colors.base08}
 label-visible-padding = 2
 
 ws-icon-default = 
