@@ -1,3 +1,4 @@
+## Autostart
 exec --no-startup-id compton &
 exec --no-startup-id pasystray &
 exec --no-startup-id pulseaudio --start &
