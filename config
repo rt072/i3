@@ -1,8 +1,17 @@
 ## Autostart
-exec --no-startup-id compton &
-exec --no-startup-id pasystray &
-exec --no-startup-id pulseaudio --start &
+#exec --no-startup-id picom &
+#exec_always --no-startup-id "killall -q picom; picom &"
+exec --no-startup-id start-pulseaudio-x11 &
+#exec --no-startup-id pulseaudio --start &
 exec --no-startup-id ~/.scripts/chwall &
+#exec --no-startup-id firefox-esr &
+#exec --no-startup-id telegram-desktop &
+#exec --no-startup-id seafile-applet &
+#exec --no-startup-id claws-mail &
+#exec --no-startup-id subl3 &
+#exec --no-startup-id homebank &
+exec --no-startup-id pasystray &
+
 
 
 set $mod Mod4
@@ -35,8 +44,8 @@ bindsym $mod+Return exec --no-startup-id $term
 bindsym $mod+Ctrl+Return exec --no-startup-id $term -n dropdown
 bindsym $mod+Ctrl+equal exec --no-startup-id galculator
 bindsym $mod+Ctrl+v exec --no-startup-id vncviewer
-bindsym 0xff61 exec --no-startup-id "scrot -e 'mv $f ~/Pictures/screenshots/'"
-bindsym $mod+0xff61 exec --no-startup-id "gnome-screenshot -a"
+bindsym 0xff61 exec --no-startup-id "scrot $(date +%y%m%d%H%M%S).png -e 'mv $f ~/Pictures/screenshots/newest/'"
+bindsym $mod+0xff61 exec --no-startup-id "gnome-screenshot -a -f ~/Pictures/screenshots/newest/$(date +%y%m%d%H%M%S).png"
 bindsym Mod1+F2 exec --no-startup-id "dmenu_settings"
 bindsym $mod+Ctrl+l exec --no-startup-id "betterlockscreen -l blur"
 bindsym Mod1+t exec --no-startup-id translate_textbox
@@ -46,6 +55,8 @@ bindsym $mod+Ctrl+f exec --no-startup-id firefox-esr
 bindsym $mod+Ctrl+s exec --no-startup-id spacefm
 bindsym $mod+Ctrl+b exec --no-startup-id homebank
 
+#bindcode $mod+34 exec ~/.scripts/encrypt_docs.sh #mod+[
+#bindcode $mod+35 exec ~/.scripts/decrypt_docs.sh #mod+]
 
 bindsym 0x1008ff02 exec --no-startup-id "xbacklight -inc 5 && xbacklight_notify"
 bindsym 0x1008ff03 exec --no-startup-id "xbacklight -dec 5 && xbacklight_notify"
@@ -168,7 +179,9 @@ for_window [class="Firefox"] move to workspace $ws3
 for_window [class="TelegramDesktop"] move to workspace $ws4
 for_window [class="Seafile Client"] move to workspace $ws4
 for_window [class="Claws-mail"] move to workspace $ws4
-
+for_window [class="Gimp-2.10"] move to workspace $ws9
+for_window [class="Homebank"] move to workspace $ws7
+for_window [class="Subl3"] move to workspace $ws6
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="Galculator"] floating enable
 for_window [class="GParted"] floating enable
@@ -183,7 +196,7 @@ for_window [class="Image Lounge"] floating enable
 for_window [class="libreoffice-*"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="Gcolor3"] floating enable
-for_window [class="keepassxc"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [class="Klavaro"] floating enable
 for_window [class="Homebank"] floating enable
 for_window [class="mpv"] floating enable
@@ -193,10 +206,16 @@ for_window [class="VirtualBox Machine"] floating enable
 for_window [class="Vmware"] floating enable
 for_window [ workspace="6" ] floating enable
 for_window [class="Subl3"] floating disable
-for_window [title="Save File"] floating enable
-for_window [title="Open File"] floating enable
 for_window [class="Pystopwatch"] floating enable
 for_window [class="Vmware"] floating enable
+
+for_window [title="Save File"] floating enable
+for_window [title="Open File"] floating enable
+for_window [title="Page Info*"] floating enable
+for_window [title="Select Folder"] floating enable
+for_window [title="About Mozilla Firefox"] floating enable
+
+for_window [ workspace="9" ] floating enable
 
 
 
@@ -211,7 +230,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
- smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -293,5 +312,5 @@ client.placeholder      $base02 $base00 $base0F $base02 $gray
 client.background       $base0E
 
 
-bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
-bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
+#bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
+#bindsym $mod+Shift+z exec maim -d 1 ~/Pictures/screenshots/newest/newest.png -s && cd ~/Pictures/screenshots/newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Pictures/screenshots/newest/newest.png ~/Pictures/screenshots/newest/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i gnome-panel-screenshot &

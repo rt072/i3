@@ -222,6 +222,7 @@ exec = ~/.config/polybar/scripts/info-trash.sh
 interval = 60
 format-prefix = " "
 label = %output%  |
+click-left = spacefm -t /home/rt072/.local/share/Trash/files
 click-right = ~/.config/polybar/scripts/info-trash.sh --clean
 
 [module/vpn-openvpn-isrunning]
