@@ -123,22 +123,6 @@ format-padding = 0
 format-background = ${colors.foreground}
 exec = echo "$(uname -n)"
 
-[module/weather]
-type = custom/script
-interval = 600
-
-;format-background = ${colors.background-alt}
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-exec = python ~/.config/polybar/scripts/weather.py | xargs
-
-[module/music]
-type = custom/script
-exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:title; if [[ "$(playerctl metadata xesam:artist)" != "" ]]; then echo -n " by "; playerctl metadata xesam:artist; fi; else echo -n ""; fi
-exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
-interval = 1
-format = <label>
 
 [network]
 type = internal/network
@@ -165,22 +149,89 @@ label-disconnected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanage
 [module/memory]
 type = internal/memory
 interval = 2
-label = %{A1:st -e htop:} %percentage_used%%{A}%
+label = %{A1:st -e htop -s PERCENT_MEM:} %percentage_used%%{A}%
 
 
 [module/cpu]
 type = internal/cpu
 format = <label>
+;format-foreground = #EBC72C
 interval = 2
-label = %{A1:st -e htop:} %percentage%%%{A}
+label = %{A1:st -e htop -s PERCENT_CPU:} %percentage:3:4%%%{A}
+
+[module/usd]
+type = custom/script
+exec = ~/.config/polybar/scripts/usd_price_alfa.sh
+interval = 1800
+label = %output%  |
+format-foreground = ${colors.foreground}
+;format-background = #F07178
+format-prefix = " "
+;format-prefix-foreground = #ffffff
+
+[module/btc]
+type = custom/script
+exec = ~/.config/polybar/scripts/btc_price.sh
+interval = 300
+label = %output%  |
+format-foreground = ${colors.foreground}
+;format-background = #F07178
+format-prefix = " "
+;format-prefix-foreground = #ffffff
+click-left = firefox-esr https://ru.tradingview.com/chart?symbol=BITSTAMP%3ABTCUSD
+
+[module/ethereum]
+type = custom/script
+exec = ~/.config/polybar/scripts/eth_price.sh
+interval = 300
+label = %output%  |
+format-foreground = ${colors.foreground}
+;format-background = #F07178
+format-prefix = " "
+;format-prefix-foreground = #ffffff
+click-left = firefox-esr https://ru.tradingview.com/chart?symbol=BITSTAMP%3AETHUSD
+
+[module/storj]
+type = custom/script
+exec = ~/.config/polybar/scripts/storj_price.sh
+interval = 300
+label = %output%  |
+format-foreground = ${colors.foreground}
+;format-background = #F07178
+format-prefix = " "
+;format-prefix-foreground = #ffffff
+click-left = firefox-esr https://ru.tradingview.com/chart?symbol=BITTREX%3ASTORJUSD
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 5
-warn-temperature = 60
-label = %temperature-c%
-label-warn = %temperature-c%
-format-warn-underline = ${colors.primary}
+thermal-zone = 0
+interval = 2
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+base-temperature = 35
+warn-temperature = 50
+
+format = "<ramp><label>"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+;format-underline = ${colors.foreground}
+format-warn = <ramp><label-warn>
+;format-warn-underline = #f50a4d
+
+label = "%temperature%"
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+label-warn = "%temperature%"
+label-warn-foreground = ${colors.alert}
+
+ramp-0 = " "
+ramp-0-foreground = ${colors.base0B}
+ramp-1 = " "
+ramp-1-foreground = ${colors.base0A}
+ramp-2 = " "
+ramp-2-foreground = ${colors.alert}
+
+ramp-foreground = ${colors.foreground}
+ramp-background = ${colors.background}
 
 [module/keyboard]
 type = internal/xkeyboard
@@ -208,12 +259,12 @@ label-mounted =  %free%
 
 [module/arch-aur-updates]
 type = custom/script
-exec = ~/.config/polybar/scripts/check-all-updates.sh
+exec = ~/.config/polybar/scripts/arch_updates.sh
 interval = 1800
 label = %output%
 format-foreground = ${colors.foreground}
 ;format-background = #F07178
-format-prefix = ""
+format-prefix = " "
 ;format-prefix-foreground = #ffffff
 
 [module/info-trash]

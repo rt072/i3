@@ -1,9 +1,7 @@
 ## Autostart
 #exec --no-startup-id picom &
-#exec_always --no-startup-id "killall -q picom; picom &"
 exec --no-startup-id start-pulseaudio-x11 &
 #exec --no-startup-id pulseaudio --start &
-exec --no-startup-id ~/.scripts/chwall &
 #exec --no-startup-id firefox-esr &
 #exec --no-startup-id telegram-desktop &
 #exec --no-startup-id seafile-applet &
@@ -11,7 +9,8 @@ exec --no-startup-id ~/.scripts/chwall &
 #exec --no-startup-id subl3 &
 #exec --no-startup-id homebank &
 exec --no-startup-id pasystray &
-
+#exec_always --no-startup-id "killall -q picom; picom &"
+exec_always --no-startup-id "killall -q chwall; ~/.scripts/chwall &"
 
 
 set $mod Mod4
@@ -47,12 +46,14 @@ bindsym $mod+Ctrl+v exec --no-startup-id vncviewer
 bindsym 0xff61 exec --no-startup-id "scrot $(date +%y%m%d%H%M%S).png -e 'mv $f ~/Pictures/screenshots/newest/'"
 bindsym $mod+0xff61 exec --no-startup-id "gnome-screenshot -a -f ~/Pictures/screenshots/newest/$(date +%y%m%d%H%M%S).png"
 bindsym Mod1+F2 exec --no-startup-id "dmenu_settings"
-bindsym $mod+Ctrl+l exec --no-startup-id "betterlockscreen -l blur"
+bindsym $mod+d exec --no-startup-id "dmenu_work"
+bindsym $mod+Ctrl+l exec --no-startup-id "betterlockscreen -l dim"
 bindsym Mod1+t exec --no-startup-id translate_textbox
+bindsym $mod+t exec --no-startup-id dmenu_translate
 bindsym Mod1+e exec --no-startup-id mousepad
 bindsym $mod+Escape exec --no-startup-id oblogout
 bindsym $mod+Ctrl+f exec --no-startup-id firefox-esr
-bindsym $mod+Ctrl+s exec --no-startup-id spacefm
+bindsym $mod+Ctrl+s exec --no-startup-id pcmanfm
 bindsym $mod+Ctrl+b exec --no-startup-id homebank
 
 #bindcode $mod+34 exec ~/.scripts/encrypt_docs.sh #mod+[
@@ -120,11 +121,11 @@ set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
-set $ws5 "5: "
+set $ws5 "5: "
 set $ws6 "6: "
 set $ws7 "7: "
 set $ws8 "8: "
-set $ws9 "9: 
+set $ws9 "9: "
 set $ws10 "10: "
 
 # switch to workspace
@@ -208,6 +209,10 @@ for_window [ workspace="6" ] floating enable
 for_window [class="Subl3"] floating disable
 for_window [class="Pystopwatch"] floating enable
 for_window [class="Vmware"] floating enable
+for_window [class="Wine"] floating enable
+for_window [class="Audacity"] floating enable
+for_window [class="Deadbeef"] floating enable
+for_window [class="Thunar"] floating enable
 
 for_window [title="Save File"] floating enable
 for_window [title="Open File"] floating enable
@@ -216,6 +221,7 @@ for_window [title="Select Folder"] floating enable
 for_window [title="About Mozilla Firefox"] floating enable
 
 for_window [ workspace="9" ] floating enable
+for_window [ workspace="2" ] floating enable
 
 
 

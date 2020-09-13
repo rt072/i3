@@ -9,10 +9,11 @@ case "$1" in
         ;;
     *)
         elements=`find ~/.local/share/Trash/files/ -maxdepth 1 | wc -l`
+        size=`du -h --max-depth=1 ~/.local/share/Trash/ | grep 'Trash/files' | awk '{print $1}'`
         if [ "$elements" -le 1 ]; then
             echo "0"
         else
-            echo `expr $elements - 1`
+            echo -e `expr $elements - 1` "%{F#FAB795}$size%{F-}"
         fi
         ;;
 esac
