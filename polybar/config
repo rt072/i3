@@ -100,9 +100,12 @@ format-full = <label-full>
 time-format = %H:%M
 label-discharging = %time% %percentage%%
 label-charging =  %percentage%%
+label-charging-foreground = ${colors.base0B}
 label-full = 🔌 %percentage%%
 ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.alert}
 ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.base0A}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
@@ -200,7 +203,7 @@ format-foreground = ${colors.foreground}
 ;format-background = #F07178
 format-prefix = " "
 ;format-prefix-foreground = #ffffff
-click-left = firefox-esr https://ru.tradingview.com/chart?symbol=BITTREX%3ASTORJUSD
+click-left = firefox-esr https://ru.tradingview.com/chart?symbol=BINANCE%3ASTORJUSDT
 
 [module/temperature]
 type = internal/temperature
@@ -273,7 +276,7 @@ exec = ~/.config/polybar/scripts/info-trash.sh
 interval = 60
 format-prefix = " "
 label = %output%  |
-click-left = spacefm -t /home/rt072/.local/share/Trash/files
+click-left = pcmanfm /home/rt072/.local/share/Trash/files
 click-right = ~/.config/polybar/scripts/info-trash.sh --clean
 
 [module/vpn-openvpn-isrunning]

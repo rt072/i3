@@ -44,6 +44,7 @@ bindsym $mod+Ctrl+Return exec --no-startup-id $term -n dropdown
 bindsym $mod+Ctrl+equal exec --no-startup-id galculator
 bindsym $mod+Ctrl+v exec --no-startup-id vncviewer
 bindsym 0xff61 exec --no-startup-id "scrot $(date +%y%m%d%H%M%S).png -e 'mv $f ~/Pictures/screenshots/newest/'"
+bindsym $mod+Ctrl+0xff61 exec --no-startup-id "scrot -u $(date +%y%m%d%H%M%S).png -e 'mv $f ~/Pictures/screenshots/newest/'"
 bindsym $mod+0xff61 exec --no-startup-id "gnome-screenshot -a -f ~/Pictures/screenshots/newest/$(date +%y%m%d%H%M%S).png"
 bindsym Mod1+F2 exec --no-startup-id "dmenu_settings"
 bindsym $mod+d exec --no-startup-id "dmenu_work"
@@ -54,7 +55,9 @@ bindsym Mod1+e exec --no-startup-id mousepad
 bindsym $mod+Escape exec --no-startup-id oblogout
 bindsym $mod+Ctrl+f exec --no-startup-id firefox-esr
 bindsym $mod+Ctrl+s exec --no-startup-id pcmanfm
+bindsym $mod+Ctrl+a exec --no-startup-id autokey-gtk
 bindsym $mod+Ctrl+b exec --no-startup-id homebank
+bindsym $mod+Ctrl+y exec --no-startup-id /usr/local/bin/you_mpv.sh
 
 #bindcode $mod+34 exec ~/.scripts/encrypt_docs.sh #mod+[
 #bindcode $mod+35 exec ~/.scripts/decrypt_docs.sh #mod+]
